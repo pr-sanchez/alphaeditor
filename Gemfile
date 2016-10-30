@@ -25,7 +25,9 @@ gem 'bootstrap-sass'
 #Devise Authentication solution for Rails
 gem 'devise', '~> 4.2'
 
-
+group :development, :test do
+	gem 'sqlite3'
+end
 
 
 group :production do
