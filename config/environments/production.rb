@@ -76,4 +76,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  #Require for Heroku
+  config.action_mailer.default_url_options = { host: 'https://fathomless-sea-61451.herokuapp.com/', port: 3000 }
+
+
 end

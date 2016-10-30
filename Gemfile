@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.3.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 
@@ -22,11 +22,19 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 #Bootstrap-sass
 gem 'bootstrap-sass'
+#Devise Authentication solution for Rails
+gem 'devise', '~> 4.2'
+
+group :develoment , :test do
+	gem 'sqlite3'
+end
+
 
 group :production do
 	gem 'pg'
 	gem 'rails_12factor'
 end
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,7 +1,11 @@
 <div class="jumbotron center">
 <h1>Bienvenido a mi Aplicación</h1>
+
+<% if user_signed_in?%>
+
+<%else%>
 <p> 
-<%= link_to "Iniciar Sesión","#", class: 'btn btn-default btn-large'%>
-<%= link_to "Registrate","#", class: 'btn btn-primary btn-large'%>
+<%= link_to "Registrate", new_user_registration_path, class: 'btn btn-primary btn-large'%>
 </p>
+<%end%>
 </div>
