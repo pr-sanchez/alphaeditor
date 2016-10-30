@@ -24,6 +24,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 #Devise Authentication solution for Rails
 gem 'devise', '~> 4.2'
+gem 'rails_admin', '~> 1.0'
 
 group :development, :test do
 	gem 'sqlite3'
