@@ -16,7 +16,20 @@
         <li><%= link_to 'Nosotros', about_path%></li>
         <% if user_signed_in? %>
         <li><%= link_to 'Configurar cuenta', edit_user_registration_path %></li>
-        <li><%= link_to 'Terminar sesión', destroy_user_session_path, method: :delete %></li>
+        <li class="cuenta"> 
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <%= current_user.email %>
+            <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+              <!--<li><a href="#">Perfil</a></li>
+              <li><a href="#">Pedidos</a></li>-->
+              <li role="separator" class="divider"></li>
+              <li><%= link_to 'Terminar sesión', destroy_user_session_path, method: :delete %></li>
+            </ul>
+            </div>
+          </li>
         <% else %>
         <li><%= link_to 'Iniciar sesión', new_user_session_path %></li>
         <% end %>

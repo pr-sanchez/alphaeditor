@@ -1,7 +1,7 @@
 <div class="jumbotron center">
 
 <% if user_signed_in?%>
-
+Bienvenido  <%= current_user.email %>
 <%else%>
 <h1>Bienvenido a AlphaEditor</h1>
 <h4>Tu editor html mas confiable.</h4>
