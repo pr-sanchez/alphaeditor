@@ -1,11 +1,12 @@
 <div class="jumbotron center">
-<h1>Bienvenido a mi Aplicación</h1>
 
 <% if user_signed_in?%>
 
 <%else%>
+<h1>Bienvenido a AlphaEditor</h1>
+<h4>Tu editor html mas confiable.</h4>
 <p> 
-<%= link_to "Registrate", new_user_registration_path, class: 'btn btn-primary btn-large'%>
+<%= link_to "Registrate", new_user_registration_path, class: 'btn btn-primary btn-lg'%>
 </p>
 <%end%>
 </div>
