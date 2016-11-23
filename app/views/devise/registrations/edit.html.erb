@@ -1,7 +1,7 @@
 <div class="panel panel-default">
 
   <div class="panel-heading">
-  <h2>Editar <%= resource_name.to_s.humanize %></h2>
+  <h2>Configurar cuenta: <%=  current_user.email  %></h2>
   </div>
     <div class="panel-body">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -41,9 +41,12 @@
         </div>
       <% end %>
 
-      <h3>Cancelar mi cuenta</h3>
+      <h3>Eliminar cuenta</h3>
 
-      <p>Unhappy? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Estas seguro de querer cancelar tu cuenta?" }, method: :delete, class: 'btn btn-danger'  %></p>
+      <p>
+      <%= button_to "Eliminar mi cuenta", registration_path(resource_name), data: { confirm: "Estas seguro de que quieres eliminar tu cuenta?" }, method: :delete, class: 'btn btn-danger'  %>
+        
+      </p>
        </div>
       <div class="panel-footer">
       <%= link_to "Regresar", :back %>
