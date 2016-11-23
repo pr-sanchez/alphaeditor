@@ -1,7 +1,9 @@
 <div class="jumbotron center">
 
 <% if user_signed_in?%>
-<h1>Bienvenido</h1>  <b><%= current_user.email %></b>
+  <h2> Conectado como</h2><b><%= current_user.email %></b>
+   <br>
+    ¿No eres tu? <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %> 
 <%else%>
 <h1>Bienvenido a AlphaEditor</h1>
 <h4>Tu editor html mas confiable.</h4>
