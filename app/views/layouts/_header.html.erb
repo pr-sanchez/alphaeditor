@@ -26,7 +26,10 @@
               <!--<li><a href="#">Perfil</a></li>
               <li><a href="#">Pedidos</a></li>-->
               <li role="separator" class="divider"></li>
-              <li><%= link_to 'Terminar sesión', destroy_user_session_path, method: :delete %></li>
+               <% if  warden.user.admin==true %>
+                <li><%= link_to 'Admin Panel', rails_admin.dashboard_path%></li>
+                <% end %>
+                 <li><%= link_to 'Terminar sesión', destroy_user_session_path, method: :delete %></li>
             </ul>
             </div>
           </li>
