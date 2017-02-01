@@ -20,7 +20,7 @@
                  Cuenta
                 <span class="caret"></span>
               </a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu dropdown-menu-right">
                 <li><a href="#">Conectado como: <%= current_user.email %></a></li>
                 <li><%= link_to "Editar cuenta", edit_user_registration_path %></li>
                 <li><%= link_to 'Panel de administrador', rails_admin.dashboard_path%></li>
@@ -36,7 +36,7 @@
                  Cuenta
                 <span class="caret"></span>
               </a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu dropdown-menu-right">
                 <li><a href="#">Conectado como: <%= current_user.email %></a></li>
                 <li><%= link_to "Editar cuenta", edit_user_registration_path %></li>
                 <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
