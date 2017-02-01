@@ -1,6 +1,5 @@
 <nav class="navbar navbar-default">
   <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -10,33 +9,48 @@
       </button>
       <%= link_to 'AlphaEditor', root_path, class: 'navbar-brand'%>
     </div>
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Inicio', root_path%></li>
-        <li><%= link_to 'Nosotros', about_path%></li>
-        <% if user_signed_in? %>
-        <li><%= link_to 'Configurar cuenta', edit_user_registration_path %></li>
-        <li class="cuenta"> 
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            <%= current_user.email %>
-            <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
-              <!--<li><a href="#">Perfil</a></li>
-              <li><a href="#">Pedidos</a></li>-->
-              <li role="separator" class="divider"></li>
-               <% if  warden.user.admin==true %>
-                <li><%= link_to 'Admin Panel', rails_admin.dashboard_path%></li>
-                <% end %>
-                 <li><%= link_to 'Terminar sesión', destroy_user_session_path, method: :delete %></li>
-            </ul>
-            </div>
-          </li>
-        <% else %>
-        <li><%= link_to 'Iniciar sesión', new_user_session_path %></li>
-        <% end %>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+      
+          <% if current_user.try(:admin?) %>
+            <li><%= link_to 'Inicio', root_path %></li>
+            <li><%= link_to 'Nosotros', about_path%></li>
+            <li class="btn-group" role="group">
+              <a type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Cuenta
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Conectado como: <%= current_user.email %></a></li>
+                <li><%= link_to "Editar cuenta", edit_user_registration_path %></li>
+                <li><%= link_to 'Panel de administrador', rails_admin.dashboard_path%></li>
+                <li><%= link_to "Terminar sesión", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+          <% elsif user_signed_in? %>
+            
+            <li><%= link_to 'Inicio', root_path %></li>
+            <li><%= link_to 'Nosotros', about_path%></li>
+            <li class="btn-group" role="group">
+              <a type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Cuenta
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Conectado como: <%= current_user.email %></a></li>
+                <li><%= link_to "Editar cuenta", edit_user_registration_path %></li>
+                <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+          <%else %>
+            <li><%= link_to 'Inicio', root_path%></li>
+            <li><%= link_to 'Nosotros', about_path%></li>
+            <li><%= link_to 'Iniciar sesión', new_user_session_path %></li>
+            <li><%= link_to 'Registrarse', new_user_registration_path %></li>
+          <%end%>
+        </ul>
+      </div>
+  </div>
 </nav>
+
+
